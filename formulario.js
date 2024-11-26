@@ -2,7 +2,7 @@ var formulario = document.querySelector("#form")
 
 formulario.onsubmit = function(e) {
 
-  e.prevent();
+  e.preventDefault(); //  el e.prevent() no era valido
   
   var n = formulario.elements[0]
   var e = formulario.elements[1]
@@ -23,9 +23,7 @@ formulario.onsubmit = function(e) {
     e.classList.add("error")
   }
 
-if (nombre.length > 0 
-  && (edad > 18 
-    && edad < 120) ) {
+if (nombre.length > 0 && edad >= 18 && edad <= 120) { // la validación de edad usa >= y <= para asegurar que los valores 18 y 120 sean aceptados
   agregarInvitado(nombre, edad, nacionalidad)
   }
 }
